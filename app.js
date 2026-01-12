@@ -11,11 +11,16 @@ const port = 3000
 //  FOR LOADING ENV
 
 // API
-app.use(cors({
-  origin: process.env.MODE_ENV === 'production' 
-    ? [process.env.PROD_DOMAIN] 
-    : ['https://developer-jayvee.github.io/Portfolio/'],
-}));
+const corsOptions = {
+  origin: process.env.NODE_ENV === 'production' 
+    ? process.env.PROD_DOMAIN  
+    : 'http://localhost:3000',
+  methods: ['GET' ,'POST',  'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: false,
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
 
