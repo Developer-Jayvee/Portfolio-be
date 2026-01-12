@@ -14,8 +14,7 @@ const port = 3000
 app.use(cors({
   origin: process.env.MODE_ENV === 'production' 
     ? [process.env.PROD_DOMAIN] 
-    : ['http://localhost:3000', 'http://localhost:5173'],
-  credentials: true
+    : ['https://developer-jayvee.github.io/Portfolio/'],
 }));
 
 app.use(express.json());
