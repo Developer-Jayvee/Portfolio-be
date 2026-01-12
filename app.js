@@ -11,7 +11,13 @@ const port = 3000
 //  FOR LOADING ENV
 
 // API
-app.use(cors());
+app.use(cors({
+  origin: process.env.MODE_ENV === 'production' 
+    ? [process.env.PROD_DOMAIN] 
+    : ['http://localhost:3000', 'http://localhost:5173'],
+  credentials: true
+}));
+
 app.use(express.json());
 
 app.use(bodyParser.urlencoded({ extended: false }))
