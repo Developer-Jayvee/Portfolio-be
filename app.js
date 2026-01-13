@@ -14,7 +14,7 @@ const port = 3000
 const corsOptions = {
   origin: process.env.NODE_ENV === 'production' 
     ? process.env.PROD_DOMAIN  
-    : 'http://localhost:3000',
+    : '*',
   methods: ['GET' ,'POST',  'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: false,

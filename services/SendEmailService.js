@@ -3,10 +3,10 @@ const axios = require('axios')
 const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
+  host: process.env.SMTP_HOST,
   auth: {
-    user: process.env.EMAIL_ADDRESS,
-    pass: process.env.EMAIL_PASSWORD,
+    user: process.env.SMTP_USERNAME,
+    pass: process.env.SMTP_PASSWORD,
   },
 });
 async function sendEmail(email_data){
@@ -14,7 +14,7 @@ async function sendEmail(email_data){
     const request = JSON.parse(email_data);
     
     const info = await transporter.sendMail({
-        from: request.email,
+        from: process.env.RECEIPIENT_EMAIL,
         to: process.env.RECEIPIENT_EMAIL,
         subject: "Portfolio Email Send",
         text: '',
