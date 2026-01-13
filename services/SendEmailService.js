@@ -21,8 +21,8 @@ async function sendEmail(email_data){
     const { data, error } = await resend.emails.send({
         from: 'Jayvee Portfolio <onboarding@resend.dev>',
         to:'jayvee.github0703@gmail.com',
-        subject: "hello world",
-        html: `<h1>From : ${request.email} </h1> <br> ${request.message}`,
+        subject: `Collaboration - Portfolio <${request.message}>`,
+        html: `${request.message}`,
     });
   //   const info = await transporter.sendMail({
   //       from: process.env.RECEIPIENT_EMAIL,
