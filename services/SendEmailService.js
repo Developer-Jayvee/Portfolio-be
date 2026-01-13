@@ -24,8 +24,6 @@ async function sendEmail(email_data){
         subject: "hello world",
         html: "<strong>it works!</strong>",
     });
-
-    return data;
   //   const info = await transporter.sendMail({
   //       from: process.env.RECEIPIENT_EMAIL,
   //       to: process.env.RECEIPIENT_EMAIL,
@@ -33,12 +31,12 @@ async function sendEmail(email_data){
   //       text: '',
   //       html:`<h1>From : ${request.email} </h1> <br> ${request.message}` 
   //   });
-  // if(info){
-  //   response.message = 'Success';
-  //   response.status = 1
-  //   return response
-  // }
-  // return response
+  if(data){
+    response.message = 'Success';
+    response.status = 1
+  }
+  
+  return response
 }
 module.exports = { sendEmail };
 
