@@ -22,7 +22,7 @@ async function sendEmail(email_data){
         from: 'Jayvee Portfolio <onboarding@resend.dev>',
         to:'jayvee.github0703@gmail.com',
         subject: "hello world",
-        html: "<strong>it works!</strong>",
+        html: `<h1>From : ${request.email} </h1> <br> ${request.message}`,
     });
   //   const info = await transporter.sendMail({
   //       from: process.env.RECEIPIENT_EMAIL,
@@ -35,7 +35,7 @@ async function sendEmail(email_data){
     response.message = 'Success';
     response.status = 1
   }
-  
+
   return response
 }
 module.exports = { sendEmail };
